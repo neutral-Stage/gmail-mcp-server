@@ -19,7 +19,8 @@
     "auth": "node dist/index.js auth",
     "setup": "node dist/index.js setup",
     "doctor": "node dist/index.js doctor",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "deploy": "gh-pages -d docs"
   },
   "keywords": [
     "mcp",
@@ -52,6 +53,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.10.10",
+    "gh-pages": "^6.3.0",
     "typescript": "^5.7.3"
   },
   "engines": {
