@@ -12,6 +12,10 @@
   <a href="https://modelcontextprotocol.io"><img src="https://img.shields.io/badge/MCP-compatible-purple?style=flat-square" alt="MCP Compatible" /></a>
 </p>
 
+<p align="center">
+  <strong>⭐ If you find this project useful, please consider giving it a star on GitHub! It helps others discover it. ⭐</strong>
+</p>
+
 ---
 
 ## ⚡ Quick Start
