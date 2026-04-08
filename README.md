@@ -238,7 +238,7 @@ Once configured, ask your AI agent:
 We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ```bash
-git clone https://github.com/sar333/gmail-mcp-server.git
+git clone https://github.com/neutral-Stage/gmail-mcp-server.git
 cd gmail-mcp-server
 npm install
 npm run build

@@ -37,14 +37,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/sar333/gmail-mcp-server.git"
+    "url": "https://github.com/neutral-Stage/gmail-mcp-server.git"
   },
-  "homepage": "https://sar333.github.io/gmail-mcp-server",
+  "homepage": "https://neutral-Stage.github.io/gmail-mcp-server",
   "bugs": {
-    "url": "https://github.com/sar333/gmail-mcp-server/issues"
+    "url": "https://github.com/neutral-Stage/gmail-mcp-server/issues"
   },
   "license": "MIT",
-  "author": "sar333",
+  "author": "neutral-Stage",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.0",
     "google-auth-library": "^9.15.1",
