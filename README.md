@@ -29,6 +29,17 @@ That's it. The setup wizard will:
 
 ---
 
+## ✨ Why choose this MCP?
+
+While Google provides workspace integrations and generic email readers exist, this MCP is explicitly built for **AI Agents acting autonomously**:
+
+- **Zero-Config Setup**: `npx gmail-mcp-server setup` detects your OS and AI client, automatically editing your local configuration JSON. No manual path mapping required.
+- **Built for AI Agents**: Includes tools like `advanced_filter` (search + bulk actions with LLM-friendly dry-runs), `batch_modify_emails` (modify 1000 emails at once), and `get_frequent_contacts` (turn an inbox into a CRM context).
+- **100% Local & Private**: Bring-your-own-credentials. Tokens remain strictly on your machine. No proxy servers, no telemetry, and no third-party email routing.
+- **Modular & Extensible**: Clean, deeply typed domain-driven structure (e.g., `src/tools/compose.ts`, `src/tools/search.ts`) making it extremely easy for developers to fork and extend.
+
+---
+
 ## 🔧 Tools (20 tools)
 
 | Category | Tool | Description |
@@ -58,16 +69,41 @@ That's it. The setup wizard will:
 
 ---
 
-## 📋 Prerequisites
+## 🚀 Step-by-Step Setup Guide
 
-Before running setup, you need Google OAuth credentials:
+Follow these steps to get your Gmail MCP server running in less than 5 minutes.
 
-1. Go to [Google Cloud Console](https://console.cloud.google.com/)
-2. Create a new project (or select existing)
-3. Enable **Gmail API**: APIs & Services → Library → search "Gmail API" → Enable
-4. Configure OAuth consent screen → External → add your email as test user
-5. Create credentials: APIs & Services → Credentials → **OAuth client ID** → **Desktop app**
-6. Download the JSON and save as `credentials.json`
+### 1. Create Google Cloud Project & Enable API
+1.  Open the [Google Cloud Console](https://console.cloud.google.com/).
+2.  **Create a New Project**: Click the project dropdown (top left) → "New Project" → Name it `Gmail MCP` → "Create".
+3.  **Enable Gmail API**: Search for "Gmail API" in the search bar → Click it → Click **Enable**.
+
+### 2. Configure OAuth Consent Screen
+1.  Go to **APIs & Services** → **OAuth consent screen**.
+2.  Select **User Type**: "External" (or "Internal" if you have a Google Workspace) → Click **Create**.
+3.  **App Information**: Fill in "App name" (e.g., `Gmail MCP`) and "User support email".
+4.  **Developer Contact**: Fill in your email address.
+5.  Click **Save and Continue** until you reach the **Summary**.
+6.  **Add Test Users**: Go back to the "OAuth consent screen" tab → Under "Test users" → Click **+ ADD USERS** → Enter your Gmail address → Click **Save**.
+
+### 3. Generate Credentials
+1.  Go to **APIs & Services** → **Credentials**.
+2.  Click **+ CREATE CREDENTIALS** → Select **OAuth client ID**.
+3.  **Application type**: Select **Desktop app**.
+4.  **Name**: Give it a name (e.g., `Gmail MCP Client`).
+5.  Click **Create**.
+6.  **Download JSON**: In the "OAuth 2.0 Client IDs" list, click the download icon (↓) for your new client.
+7.  **Rename & Move**: Save this file as `credentials.json` in your project folder (or keep it ready for the setup wizard).
+
+### 4. Run the Setup Wizard
+Open your terminal and run:
+```bash
+npx gmail-mcp-server setup
+```
+The wizard will guide you through:
+-   Finding your `credentials.json`.
+-   Selecting your AI client (Claude, Cursor, etc.).
+-   Authorizing the app via your browser.
 
 ---
 
@@ -148,6 +184,17 @@ npx gmail-mcp-server doctor     # Diagnose issues
 npx gmail-mcp-server --help     # Show help
 npx gmail-mcp-server --version  # Show version
 ```
+
+---
+
+## 🩺 Troubleshooting
+
+If you run into issues, try the following:
+
+1.  **Run the Doctor**: `npx gmail-mcp-server doctor` will diagnose common problems with your credentials, tokens, and system.
+2.  **Missing `credentials.json`**: Ensure you've downloaded the file from Google Cloud Console and it's named exactly `credentials.json` in your current directory.
+3.  **Invalid Grant / Expired Token**: If the server can't connect, try running `npx gmail-mcp-server auth` to reset your OAuth tokens.
+4.  **Port 3000 Busy**: The auth flow uses port 3000. If it's busy, the flow might fail. Ensure no other apps are using port 3000 during setup.
 
 ---
 

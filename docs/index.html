@@ -86,6 +86,32 @@
     </div>
   </section>
 
+  <!-- ══════════════════ WHY CHOOSE US ══════════════════ -->
+  <section class="features" style="background: #09090b; padding-bottom: 0;" id="why-us">
+    <div class="container">
+      <h2 class="section-title">Why choose this MCP?</h2>
+      <p class="section-subtitle">Explicitly built for autonomous AI agents, not just simple queries.</p>
+
+      <div class="feature-grid">
+        <div class="feature-card" style="border-color: var(--primary);">
+          <div class="feature-icon">✨</div>
+          <h3 style="color: var(--primary);">Zero-Config Setup</h3>
+          <p>No manual path mapping. The `npx` wizard detects your OS and AI client, automatically configuring your local JSON.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <h3>Agent-First Tools</h3>
+          <p>Features like dry-run `advanced_filter` and bulk `batch_modify_emails` let agents safely manage thousands of emails.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏠</div>
+          <h3>100% Local & Private</h3>
+          <p>Bring-your-own-credentials. No third-party proxy servers, telemetry, or external data reading. Your data stays on your machine.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ══════════════════ FEATURES ══════════════════ -->
   <section class="features" id="features">
     <div class="container">
@@ -189,26 +215,26 @@
         <div class="step">
           <div class="step-number">1</div>
           <div class="step-content">
-            <h3>Get Google credentials</h3>
-            <p>Create an OAuth client ID in <a href="https://console.cloud.google.com/" target="_blank">Google Cloud Console</a>. Enable Gmail API, configure consent screen, download <code>credentials.json</code>.</p>
+            <h3>Google Cloud Setup</h3>
+            <p>Go to <a href="https://console.cloud.google.com/" target="_blank">Google Cloud Console</a>, create a project, enable <strong>Gmail API</strong>, and configure your OAuth consent screen with your email as a "Test User".</p>
           </div>
         </div>
         <div class="step">
           <div class="step-number">2</div>
           <div class="step-content">
-            <h3>Run the setup wizard</h3>
-            <div class="step-code">
-              <code>npx gmail-mcp-server setup</code>
-              <button class="copy-small" onclick="copyText('npx gmail-mcp-server setup')">Copy</button>
-            </div>
-            <p>Choose your AI client — the wizard auto-writes the config file for you.</p>
+            <h3>Download Credentials</h3>
+            <p>Create an <strong>OAuth Client ID</strong> for "Desktop app". Download the JSON and save it as <code>credentials.json</code> in your project folder.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-number">3</div>
           <div class="step-content">
-            <h3>Restart your AI client</h3>
-            <p>That's it. Ask your agent: <em>"Search my emails for unread messages from GitHub"</em></p>
+            <h3>Run the Magic Command</h3>
+            <div class="step-code">
+              <code>npx gmail-mcp-server setup</code>
+              <button class="copy-small" onclick="copyText('npx gmail-mcp-server setup')">Copy</button>
+            </div>
+            <p>Choose your AI client — the wizard auto-configures everything, runs the OAuth flow, and starts the server.</p>
           </div>
         </div>
       </div>
