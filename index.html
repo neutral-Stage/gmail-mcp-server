@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gmail MCP Server — AI-Powered Email for Claude, Cursor & More</title>
+  <meta name="description" content="The most powerful open-source Gmail MCP server. Search, read, send, and organize emails with AI agents. One-command setup for Claude Desktop, Claude Code, Cursor, and Windsurf.">
+  <meta name="keywords" content="Gmail MCP, Claude Desktop, Claude Code, Cursor, AI email, Model Context Protocol, MCP server, Gmail API">
+  <meta property="og:title" content="Gmail MCP Server — AI-Powered Email Management">
+  <meta property="og:description" content="20 tools for AI agents to search, read, send, and organize Gmail. One-command install.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://neutral-Stage.github.io/gmail-mcp-server">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ══════════════════ NAV ══════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">📧 Gmail MCP</a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#tools">Tools</a>
+        <a href="#setup">Setup</a>
+        <a href="https://github.com/neutral-Stage/gmail-mcp-server" target="_blank" class="nav-github">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════════════ HERO ══════════════════ -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Open Source · MIT License · 20 Tools</div>
+      <h1>Gmail meets <span class="gradient-text">AI Agents</span></h1>
+      <p class="hero-subtitle">The most powerful open-source MCP server for Gmail. Search, read, compose, and organize your email — all through Claude, Cursor, and any MCP-compatible AI agent.</p>
+
+      <div class="hero-terminal" id="terminal">
+        <div class="terminal-header">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot yellow"></span>
+          <span class="terminal-dot green"></span>
+          <span class="terminal-title">Terminal</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line" id="term-line-1">
+            <span class="terminal-prompt">$</span>
+            <span class="terminal-cmd" id="cmd-1"></span>
+            <span class="terminal-cursor" id="cursor-1">▋</span>
+          </div>
+          <div class="terminal-line terminal-output hidden" id="term-out-1">
+            <span class="terminal-success">✓</span> credentials.json found<br>
+            <span class="terminal-success">✓</span> Config written to claude_desktop_config.json<br>
+            <span class="terminal-success">✓</span> OAuth authentication successful<br>
+            <span class="terminal-success">🎉</span> Setup complete! Restart Claude Desktop.
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="copyInstall()" id="copy-btn">
+          <span id="copy-text">npx gmail-mcp-server setup</span>
+          <svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+        <a href="https://github.com/neutral-Stage/gmail-mcp-server" target="_blank" class="btn btn-secondary">View on GitHub →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ CLIENTS ══════════════════ -->
+  <section class="clients">
+    <div class="container">
+      <p class="clients-label">Works seamlessly with</p>
+      <div class="client-logos">
+        <div class="client-item">Claude Desktop</div>
+        <div class="client-item">Claude Code</div>
+        <div class="client-item">Cursor</div>
+        <div class="client-item">Windsurf</div>
+        <div class="client-item">Any MCP Client</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ WHY CHOOSE US ══════════════════ -->
+  <section class="features" style="background: #09090b; padding-bottom: 0;" id="why-us">
+    <div class="container">
+      <h2 class="section-title">Why choose this MCP?</h2>
+      <p class="section-subtitle">Explicitly built for autonomous AI agents, not just simple queries.</p>
+
+      <div class="feature-grid">
+        <div class="feature-card" style="border-color: var(--primary);">
+          <div class="feature-icon">✨</div>
+          <h3 style="color: var(--primary);">Zero-Config Setup</h3>
+          <p>No manual path mapping. The `npx` wizard detects your OS and AI client, automatically configuring your local JSON.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <h3>Agent-First Tools</h3>
+          <p>Features like dry-run `advanced_filter` and bulk `batch_modify_emails` let agents safely manage thousands of emails.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏠</div>
+          <h3>100% Local & Private</h3>
+          <p>Bring-your-own-credentials. No third-party proxy servers, telemetry, or external data reading. Your data stays on your machine.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ FEATURES ══════════════════ -->
+  <section class="features" id="features">
+    <div class="container">
+      <h2 class="section-title">Everything your AI agent needs</h2>
+      <p class="section-subtitle">20 powerful tools organized into clean categories. From simple searches to complex inbox automation.</p>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <h3>Smart Search</h3>
+          <p>Full Gmail query syntax — search by sender, subject, labels, date range, attachments, and more.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📖</div>
+          <h3>Read & Thread</h3>
+          <p>Get full email content with headers, body, and attachments. Navigate entire conversation threads.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✉️</div>
+          <h3>Compose & Reply</h3>
+          <p>Send new emails, reply (or reply-all), forward messages, and save drafts — all with proper threading.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏷️</div>
+          <h3>Labels & Organize</h3>
+          <p>Create, delete, apply, and remove labels. Archive, trash, star, and mark as read/unread in bulk.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Bulk Actions</h3>
+          <p>Advanced filter with dry-run support. Apply actions to hundreds of emails matching complex queries.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📎</div>
+          <h3>Attachments</h3>
+          <p>Download and read attachment content. Let your AI agent process invoices, receipts, and documents.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👤</div>
+          <h3>Profile & Contacts</h3>
+          <p>Get your email profile and discover your most-contacted addresses from sent mail history.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>Secure & Local</h3>
+          <p>All data stays on your machine. No external servers, no telemetry. OAuth tokens auto-refresh.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ TOOLS TABLE ══════════════════ -->
+  <section class="tools-section" id="tools">
+    <div class="container">
+      <h2 class="section-title">20 tools at your fingertips</h2>
+      <p class="section-subtitle">Every tool uses Zod validation, returns structured JSON, and includes descriptive error messages.</p>
+
+      <div class="tools-grid">
+        <div class="tool-group">
+          <h3 class="tool-group-title">Search & Read</h3>
+          <div class="tool-item"><code>search_emails</code><span>Gmail query search with pagination</span></div>
+          <div class="tool-item"><code>get_email</code><span>Full email with body & attachments</span></div>
+          <div class="tool-item"><code>get_thread</code><span>All messages in a thread</span></div>
+          <div class="tool-item"><code>get_attachment</code><span>Download attachment content</span></div>
+        </div>
+        <div class="tool-group">
+          <h3 class="tool-group-title">Compose</h3>
+          <div class="tool-item"><code>send_email</code><span>Send new email</span></div>
+          <div class="tool-item"><code>reply_email</code><span>Reply or reply-all</span></div>
+          <div class="tool-item"><code>forward_email</code><span>Forward with optional note</span></div>
+          <div class="tool-item"><code>create_draft</code><span>Save as draft</span></div>
+        </div>
+        <div class="tool-group">
+          <h3 class="tool-group-title">Organize</h3>
+          <div class="tool-item"><code>modify_email</code><span>Add/remove labels</span></div>
+          <div class="tool-item"><code>batch_modify_emails</code><span>Bulk modify (up to 1000)</span></div>
+          <div class="tool-item"><code>trash_email</code><span>Move to trash</span></div>
+          <div class="tool-item"><code>untrash_email</code><span>Restore from trash</span></div>
+          <div class="tool-item"><code>batch_trash_emails</code><span>Bulk trash</span></div>
+          <div class="tool-item"><code>mark_spam</code><span>Mark as spam</span></div>
+          <div class="tool-item"><code>advanced_filter</code><span>Search + bulk action</span></div>
+        </div>
+        <div class="tool-group">
+          <h3 class="tool-group-title">Labels & Profile</h3>
+          <div class="tool-item"><code>list_labels</code><span>All labels with IDs</span></div>
+          <div class="tool-item"><code>create_label</code><span>Create nested label</span></div>
+          <div class="tool-item"><code>delete_label</code><span>Delete user label</span></div>
+          <div class="tool-item"><code>get_profile</code><span>Your email profile</span></div>
+          <div class="tool-item"><code>get_frequent_contacts</code><span>Top contacts from sent</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ SETUP ══════════════════ -->
+  <section class="setup-section" id="setup">
+    <div class="container">
+      <h2 class="section-title">Set up in 3 steps</h2>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Google Cloud Setup</h3>
+            <p>Go to <a href="https://console.cloud.google.com/" target="_blank">Google Cloud Console</a>, create a project, enable <strong>Gmail API</strong>, and configure your OAuth consent screen with your email as a "Test User".</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Download Credentials</h3>
+            <p>Create an <strong>OAuth Client ID</strong> for "Desktop app". Download the JSON and save it as <code>credentials.json</code> in your project folder.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Run the Magic Command</h3>
+            <div class="step-code">
+              <code>npx gmail-mcp-server setup</code>
+              <button class="copy-small" onclick="copyText('npx gmail-mcp-server setup')">Copy</button>
+            </div>
+            <p>Choose your AI client — the wizard auto-configures everything, runs the OAuth flow, and starts the server.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Config tabs -->
+      <div class="config-tabs">
+        <div class="tab-buttons">
+          <button class="tab-btn active" onclick="switchTab('claude-desktop')">Claude Desktop</button>
+          <button class="tab-btn" onclick="switchTab('claude-code')">Claude Code</button>
+          <button class="tab-btn" onclick="switchTab('cursor')">Cursor</button>
+        </div>
+        <div class="tab-content" id="tab-claude-desktop">
+          <div class="config-path">~/Library/Application Support/Claude/claude_desktop_config.json</div>
+          <pre><code>{
+  "mcpServers": {
+    "gmail": {
+      "command": "npx",
+      "args": ["-y", "gmail-mcp-server"]
+    }
+  }
+}</code></pre>
+        </div>
+        <div class="tab-content hidden" id="tab-claude-code">
+          <div class="config-path">~/.claude/mcp.json</div>
+          <pre><code>{
+  "mcpServers": {
+    "gmail": {
+      "command": "npx",
+      "args": ["-y", "gmail-mcp-server"]
+    }
+  }
+}</code></pre>
+        </div>
+        <div class="tab-content hidden" id="tab-cursor">
+          <div class="config-path">.cursor/mcp.json</div>
+          <pre><code>{
+  "mcpServers": {
+    "gmail": {
+      "command": "npx",
+      "args": ["-y", "gmail-mcp-server"]
+    }
+  }
+}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ FOOTER ══════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-left">
+          <span class="footer-logo">📧 Gmail MCP Server</span>
+          <span class="footer-copy">MIT License · Open Source</span>
+        </div>
+        <div class="footer-right">
+          <a href="https://github.com/neutral-Stage/gmail-mcp-server" target="_blank">GitHub</a>
+          <a href="https://www.npmjs.com/package/gmail-mcp-server" target="_blank">npm</a>
+          <a href="https://modelcontextprotocol.io" target="_blank">MCP Spec</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
