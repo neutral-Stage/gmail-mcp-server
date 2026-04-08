@@ -81,9 +81,10 @@ a:hover {
   align-items: center;
 }
 
-.nav-links nav-github {
+.nav-links .nav-github {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
 }
 
@@ -213,7 +214,7 @@ a:hover {
   text-align: left;
   font-family: var(--font-mono);
   font-size: 14px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .terminal-header {
@@ -233,9 +234,17 @@ a:hover {
   border-radius: 50%;
 }
 
-.terminal-dot.red { background: #ff5f56; }
-.terminal-dot.yellow { background: #ffbd2e; }
-.terminal-dot.green { background: #27c93f; }
+.terminal-dot.red {
+  background: #ff5f56;
+}
+
+.terminal-dot.yellow {
+  background: #ffbd2e;
+}
+
+.terminal-dot.green {
+  background: #27c93f;
+}
 
 .terminal-title {
   position: absolute;
@@ -268,8 +277,15 @@ a:hover {
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 .terminal-output {
@@ -507,7 +523,7 @@ a:hover {
 .tab-buttons {
   display: flex;
   border-bottom: 1px solid var(--border);
-  background: rgba(0,0,0,0.2);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .tab-btn {
@@ -525,7 +541,7 @@ a:hover {
 
 .tab-btn:hover {
   color: var(--fg);
-  background: rgba(255,255,255,0.02);
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .tab-btn.active {
@@ -600,8 +616,20 @@ a:hover {
 
 /* Mobile */
 @media (max-width: 768px) {
-  .hero h1 { font-size: 40px; }
-  .feature-grid { grid-template-columns: 1fr; }
-  .nav-links a:not(.nav-github) { display: none; }
-  .step { flex-direction: column; gap: 12px; }
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-links a:not(.nav-github) {
+    display: none;
+  }
+
+  .step {
+    flex-direction: column;
+    gap: 12px;
+  }
 }
