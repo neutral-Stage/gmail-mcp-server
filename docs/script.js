@@ -1,70 +1,69 @@
-// Terminal Animation
-document.addEventListener('DOMContentLoaded', () => {
-  const cmdElem = document.getElementById('cmd-1');
-  const cursorElem = document.getElementById('cursor-1');
-  const outElem = document.getElementById('term-out-1');
-  const fullText = "npx gmail-mcp-server setup";
-  
-  let i = 0;
-  
-  function typeWriter() {
-    if (i < fullText.length) {
-      cmdElem.innerHTML += fullText.charAt(i);
-      i++;
-      setTimeout(typeWriter, 50 + Math.random() * 50);
-    } else {
-      setTimeout(() => {
-        cursorElem.style.display = 'none';
-        outElem.classList.remove('hidden');
-      }, 500);
+// Intersection Observer for Scroll Reveals
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -100px 0px'
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active')
     }
-  }
-  
-  setTimeout(typeWriter, 1000);
-});
+  })
+}, observerOptions)
 
-// Copy button
-function copyInstall() {
-  const text = "npx gmail-mcp-server setup";
-  navigator.clipboard.writeText(text);
-  
-  const span = document.getElementById('copy-text');
-  const oldText = span.innerText;
-  span.innerText = "Copied!";
-  
-  setTimeout(() => {
-    span.innerText = oldText;
-  }, 2000);
-}
+document.addEventListener('DOMContentLoaded', () => {
+  // Observe all reveal elements
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
 
-function copyText(text) {
-  navigator.clipboard.writeText(text);
-}
+  // Mouse tracking for feature cards (Linear style glow)
+  const cards = document.querySelectorAll('.feature-card')
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect()
+      const x = e.clientX - rect.left
+      const y = e.clientY - rect.top
+      card.style.setProperty('--mouse-x', `${x}px`)
+      card.style.setProperty('--mouse-y', `${y}px`)
+    })
+  })
 
-// Tabs
-function switchTab(tabId) {
-  // Update buttons
+  // Hero Terminal Typing Animation
+  document.querySelectorAll('.terminal-line').forEach((line, i) => {
+    setTimeout(() => {
+      line.classList.remove('hidden')
+    }, 500 + (i * 1000))
+  })
+})
+
+// Tab Switching Logic
+function switchTab(clientId) {
+  // Buttons
   document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.classList.remove('active');
-  });
-  event.target.classList.add('active');
-
-  // Update content
+    btn.classList.remove('active')
+    if (btn.getAttribute('onclick').includes(clientId)) {
+      btn.classList.add('active')
+    }
+  })
+  
+  // Content
   document.querySelectorAll('.tab-content').forEach(content => {
-    content.classList.add('hidden');
-  });
-  document.getElementById('tab-' + tabId).classList.remove('hidden');
+    content.classList.add('hidden')
+  })
+  document.getElementById(`tab-${clientId}`).classList.remove('hidden')
 }
 
-// Smooth scroll for nav links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-    });
-});
+// Copy to Clipboard
+async function copyText(text) {
+  try {
+    await navigator.clipboard.writeText(text)
+    const btn = event.target || document.querySelector('.copy-small')
+    const originalText = btn.innerText
+    btn.innerText = 'Copied!'
+    setTimeout(() => {
+      btn.innerText = originalText
+    }, 2000)
+  } catch (err) {
+    console.error('Failed to copy: ', err)
+  }
+}
