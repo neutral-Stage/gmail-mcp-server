@@ -33,14 +33,25 @@
   </nav>
 
   <!-- ══════════════════ HERO ══════════════════ -->
-  <section class="hero">
+  <header class="hero">
+    <div class="grid-bg"></div>
     <div class="hero-glow"></div>
-    <div class="hero-content">
-      <div class="hero-badge">Open Source · MIT License · 20 Tools</div>
-      <h1>Gmail meets <span class="gradient-text">AI Agents</span></h1>
-      <p class="hero-subtitle">The most powerful open-source MCP server for Gmail. Search, read, compose, and organize your email — all through Claude, Cursor, and any MCP-compatible AI agent.</p>
+    
+    <div class="container">
+      <h1 class="reveal">Power your Agents with <span class="gradient-text">Gmail MCP</span></h1>
+      <p class="hero-subtitle reveal">
+        The ultimate Model Context Protocol server for Gmail. Search, read, and manage emails with production-grade reliability and security.
+      </p>
+      
+      <div class="hero-actions reveal">
+        <a href="#setup" class="btn btn-primary">Get Started</a>
+        <a href="https://github.com/neutral-Stage/gmail-mcp-server" class="btn btn-secondary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          Star on GitHub
+        </a>
+      </div>
 
-      <div class="hero-terminal" id="terminal">
+      <div class="hero-terminal reveal">
         <div class="terminal-header">
           <span class="terminal-dot red"></span>
           <span class="terminal-dot yellow"></span>
@@ -61,16 +72,8 @@
           </div>
         </div>
       </div>
-
-      <div class="hero-actions">
-        <button class="btn btn-primary" onclick="copyInstall()" id="copy-btn">
-          <span id="copy-text">npx gmail-mcp-server setup</span>
-          <svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-        </button>
-        <a href="https://github.com/neutral-Stage/gmail-mcp-server" target="_blank" class="btn btn-secondary">View on GitHub →</a>
-      </div>
     </div>
-  </section>
+  </header>
 
   <!-- ══════════════════ CLIENTS ══════════════════ -->
   <section class="clients">
@@ -87,15 +90,12 @@
   </section>
 
   <!-- ══════════════════ WHY CHOOSE US ══════════════════ -->
-  <section class="features" style="background: #09090b; padding-bottom: 0;" id="why-us">
-    <div class="container">
-      <h2 class="section-title">Why choose this MCP?</h2>
-      <p class="section-subtitle">Explicitly built for autonomous AI agents, not just simple queries.</p>
-
+  <section id="why-choice" class="container reveal">
+      <h2 style="text-align: center; font-size: 32px; letter-spacing: -0.03em; margin-bottom: 48px;">Built for the Agentic Era</h2>
       <div class="feature-grid">
-        <div class="feature-card" style="border-color: var(--primary);">
+        <div class="feature-card">
           <div class="feature-icon">✨</div>
-          <h3 style="color: var(--primary);">Zero-Config Setup</h3>
+          <h3>Zero-Config Setup</h3>
           <p>No manual path mapping. The `npx` wizard detects your OS and AI client, automatically configuring your local JSON.</p>
         </div>
         <div class="feature-card">
@@ -109,11 +109,10 @@
           <p>Bring-your-own-credentials. No third-party proxy servers, telemetry, or external data reading. Your data stays on your machine.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
   <!-- ══════════════════ FEATURES ══════════════════ -->
-  <section class="features" id="features">
+  <section class="features reveal" id="features">
     <div class="container">
       <h2 class="section-title">Everything your AI agent needs</h2>
       <p class="section-subtitle">20 powerful tools organized into clean categories. From simple searches to complex inbox automation.</p>
@@ -164,7 +163,7 @@
   </section>
 
   <!-- ══════════════════ TOOLS TABLE ══════════════════ -->
-  <section class="tools-section" id="tools">
+  <section class="tools-section reveal" id="tools">
     <div class="container">
       <h2 class="section-title">20 tools at your fingertips</h2>
       <p class="section-subtitle">Every tool uses Zod validation, returns structured JSON, and includes descriptive error messages.</p>
@@ -207,7 +206,7 @@
   </section>
 
   <!-- ══════════════════ SETUP ══════════════════ -->
-  <section class="setup-section" id="setup">
+  <section class="setup-section reveal" id="setup">
     <div class="container">
       <h2 class="section-title">Set up in 3 steps</h2>
 
